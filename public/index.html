@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Weather Chat!</title>
+</head>
+<body>
+    <div class="page-header">
+        <h1>Weather Chat</h1>
+      </div>
+
+      <script id="weather-template" type="text/x-handlebars-template">
+        <ul>
+          {{#each}}
+          <li data-id={{@index}}>{{name}} ({{frequency}}) - ${{cost}} <button type="button" class="btn clear-item">Clear Item</button></li>
+          
+          {{/each}}
+        </ul>
+      </script>
+      <script id="comments-template" type="text/x-handlebars-template">
+        <ul>
+          {{#each}}
+          <li data-id={{@index}}>{{name}} ({{frequency}}) - ${{cost}} <button type="button" class="btn clear-item">Clear Item</button></li>
+          
+          {{/each}}
+        </ul>
+      </script>
+      <script type="text/javascript" src="jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="handlebars/dist/handlebars.min.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+
+</body>
+</html>
