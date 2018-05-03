@@ -1,52 +1,37 @@
-class weatherInfo {
-  constructor (data, comments) {
-    this.data = data;
+class renderComments {
+  constructor (cityName, comments) {
+    this.cityName = cityName;
     this.comments = comments;
   }
-}
-
-class Data {
-  constructor (city) {
-    this.city = city;
-  }
-    fetch(city) {
-      $.ajax({
-        method: "GET",
-        url:"http://api.apixu.com/v1/current.json?key=9f42a96480b84863a76122532180205&q="+city,
-      })
-      .then (function success (data) {
-          console.log(data);
-          var source = $("#weather-template").html();
-          var template = Handlebars.compile(source);
-          var newHTML = template(data);
-          $(".city-details").append(newHTML);
-        })
-      .catch (function error (jqXHR, textStatus, errorThrown) {
-          console.log(textStatus);
-        });
-    }; 
-    weatherData(data) {
-      new weatherInfo(data);
-    }
-    }
- 
-class Comments {
-  constructor(comments){
-    this.comments = [];
-  }
- createComments(comment) {
+  createComments(cityName, comment) {
     var input = {text: comment};
-    comments.push(input);
+    for (let i = 0; i < this.dataArray.length; i++){
+      if (cityName === city[i]){
+          var index = i;
+      }
+  }
+    dataArray[index].comments.push(input);
 };
-renderComments(){
-  $("ul").empty();
-   for (let i = 0; i < comments.length; i++){
-     $("ul").append("<li>" + comments[i].text + "</li><br>");
+renderComments(cityName){
+  for (let i = 0; i < this.dataArray.length; i++){
+      if (cityName === city[i]){
+          var index = i;
+      }
+  }
+  $(this).closest("ul").empty();
+   for (let j = 0; j < this.array[index].comments.length; j++){
+     $("ul").append("<li>" + this.array[index].comments.text[j] + "</li><br>");
    }
 };
-  weatherComments(comments);
-   new weatherInfo(comments);
+ weatherComments(comments){
+  let weatherCommments = new weatherInfo(comments);
 }
+
+import {Data} from './data.js'
+import {Comments} from './comments.js'
+import {newComment} from './main.js'
+ 
+export {renderComments}
   
 
- export {Data}
+ 
