@@ -1,35 +1,63 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <title>Weather Chat!</title>
-</head>
-<body>
-    <div class="page-header">
-        <h1>Weather Chat</h1>
-      </div>
 
-      <script id="weather-template" type="text/x-handlebars-template">
-        <ul>
-          {{#each}}
-          <li data-id={{@index}}>{{name}} ({{frequency}}) - ${{cost}} <button type="button" class="btn clear-item">Clear Item</button></li>
-          
-          {{/each}}
-        </ul>
+<head>
+    <link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Weather Chat!</title>
+</head>
+
+<body>
+
+    <div class="row container-fluid">
+        <div class="col-md-offset-2 col-md-9">
+            <div class="page-header">
+                <h1>Weather Chat</h1>
+            </div>
+
+            <form>
+
+                <div class="form-group input-group mb-3">
+                    <input type="text" id="city-name" class="form-control" placeholder="Enter City">
+                    <div class="input-group-append">
+                    <span class="btn btn-primary add-city" type="button">Get Temp</span>
+                    </div>
+                </div>
+
+               
+            </form>
+
+        </div>
+    <div class="city-details container fluid">
+
+    </div>
+
+    </div>
+</body>
+
+
+<script id="weather-template" type="text/x-handlebars-template">
+        <h1>{{location.name}}</h1>
+        <p>Today's temperature: {{current.temp_c}} degrees Celsius</p>
+        <div class="comments">
+            <form>
+
+                <div class="form-group input-group mb-3">
+                    <input type="text" data-name={{location.name}} id="city-comments" class="form-control" placeholder="Comments about the weather in {{location.name}}">
+                    <div class="input-group-append">
+                            <span class="btn btn-primary add-comment" type="button">Comment</span>
+                            </div>
+                </div>
+            </form>
+            <ul>
+            </ul>
+        </div>
       </script>
-      <script id="comments-template" type="text/x-handlebars-template">
-        <ul>
-          {{#each}}
-          <li data-id={{@index}}>{{name}} ({{frequency}}) - ${{cost}} <button type="button" class="btn clear-item">Clear Item</button></li>
-          
-          {{/each}}
-        </ul>
-      </script>
-      <script type="text/javascript" src="jquery/dist/jquery.min.js"></script>
-  <script type="text/javascript" src="handlebars/dist/handlebars.min.js"></script>
-  <script type="text/javascript" src="main.js"></script>
+<script type="text/javascript" src="jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="handlebars/dist/handlebars.min.js"></script>
+<script type="module" src="main.js"></script>
 
 </body>
+
 </html>
