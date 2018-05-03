@@ -21,38 +21,43 @@
                 <div class="form-group input-group mb-3">
                     <input type="text" id="city-name" class="form-control" placeholder="Enter City">
                     <div class="input-group-append">
-                    <span class="btn btn-primary add-city" type="button">Get Temp</span>
+                        <span class="btn btn-primary add-city" type="button">Get Temp</span>
                     </div>
                 </div>
 
-               
+
             </form>
 
         </div>
-    <div class="city-details container fluid">
+        <div class="city-details container fluid">
 
-    </div>
+        </div>
 
     </div>
 </body>
 
 
 <script id="weather-template" type="text/x-handlebars-template">
-        <h1>{{location.name}}</h1>
-        <p>Today's temperature: {{current.temp_c}} degrees Celsius</p>
+        {{#each dataArray}}
+    <div> 
+        <h1>{{city}}</h1>
+        <p>Today's temperature: {{temp}} degrees Celsius</p>
         <div class="comments">
             <form>
 
                 <div class="form-group input-group mb-3">
-                    <input type="text" data-name={{location.name}} id="city-comments" class="form-control" placeholder="Comments about the weather in {{location.name}}">
+                    <input type="text" id="city-comments" data-name={{city}} class="form-control" placeholder="Comments about the weather in {{city}}">
                     <div class="input-group-append">
                             <span class="btn btn-primary add-comment" type="button">Comment</span>
                             </div>
                 </div>
             </form>
-            <ul>
-            </ul>
+                <ul>
+                   
+                </ul>
         </div>
+        {{/each}}
+    </div>
       </script>
 <script type="text/javascript" src="jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="handlebars/dist/handlebars.min.js"></script>
