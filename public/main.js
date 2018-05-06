@@ -17,6 +17,7 @@ import {dataLayer} from './newData.js'
     var comment = $cityComment.find("#city-comments").val();
     var cityName = $cityComment.find("#city-comments").data().name;
     dataLayer.createComments(cityName, comment);
-    render.renderComments(cityName, dataLayer.dataArray, $(this));
+    render.renderPost(dataLayer.dataArray);
+    //render.renderComments(cityName, dataLayer.dataArray, $(this));
   })
 
