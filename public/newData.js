@@ -1,19 +1,26 @@
-import {dataArray} from './main.js'
+import {weatherApi} from './ajax.js'
+import {render} from './render.js'
 
-class newData {
-    constructor (cityName, comment) {
-        this.cityName = cityName;
-        this.comment = comment;
+class DataLayer {
+    constructor () { 
+        this.dataArray = [];
     }
+
+    createWeather(dataObj){
+        this.dataArray.push(dataObj);
+    }
+
     createComments(cityName, comment) {
         var input = {text: comment};
-        for (let i = 0; i < dataArray.length; i++){
-          if (cityName === dataArray[i].city){
+        for (let i = 0; i < this.dataArray.length; i++){
+          if (cityName === this.dataArray[i].city){
               var index = i;
           }
       }
-        dataArray[index].comments.push(input);
-    };
-}
+        this.dataArray[index].comments.push(input);
+    }
 
-export {newData}
+
+}
+const dataLayer = new DataLayer();
+export {dataLayer}

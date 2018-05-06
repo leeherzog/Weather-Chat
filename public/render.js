@@ -1,9 +1,8 @@
-import {dataArray} from './main.js'
+import {dataLayer} from './newData.js'
+import {weatherApi} from './ajax.js'
 
 class Render {
-    constructor (cityName, dataArray){
-        this.cityName = cityName;
-        this.dataArray = dataArray;
+    constructor (){  
     }
     renderPost (dataArray) {
         $(".city-details").empty();
@@ -13,17 +12,18 @@ class Render {
         var newHTML = template(obj);
         $(".city-details").append(newHTML);
     }
-    renderComments(cityName, dataArray, current){
-        for (let i = 0; i < this.dataArray.length; i++){
+
+    renderComments(cityName, dataArray, $currentBtn){
+        for (let i = 0; i < dataLayer.dataArray.length; i++){
             if (cityName === dataArray[i].city){
                 var index = i;
             }
         }
-        $(current).closest('.comments').find('ul').empty();
-         for (let j = 0; j < dataArray[index].comments.length; j++){
-             $(current).closest('.comments').find('ul').append("<li>" + dataArray[index].comments[j].text + "</li><br>");
+        $currentBtn.closest('.comments').find('ul').empty();
+         for (let j = 0; j < dataLayer.dataArray[index].comments.length; j++){
+             $currentBtn.closest('.comments').find('ul').append("<li>" + dataLayer.dataArray[index].comments[j].text + "</li><br>");
          }
       };
 }
-
-export {Render}
+const render = new Render();
+export {render}
